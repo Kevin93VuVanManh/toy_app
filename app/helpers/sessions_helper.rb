@@ -11,7 +11,8 @@ module SessionsHelper
     elsif (user_id = cookies.signed[:user_id])
         user = User.find_by(id: user_id)
         #sau khi lay dc du lieu ve thi se kiem tra lai xem ma token nay co khop voi database khong
-        if user && user.authenticated?(cookies[:remember_token])
+      #  if user && user.authenticated?(cookies[:remember_token])
+       if user && user.authenticated?(:remember, cookies[:remember_token])
         #dat gia tri cho session 
         log_in user
         @current_user = user  
