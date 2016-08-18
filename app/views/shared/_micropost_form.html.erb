@@ -1,0 +1,9 @@
+<!--Tu Dong goi den method Post khong nhat thiet phai them URL-->
+<%= form_for(@micropost) do |f| %>
+  <!--To unify these cases, we can pass the form variable f to the partial and access the associated object through f.objec-->
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>
